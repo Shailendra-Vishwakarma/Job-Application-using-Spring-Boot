@@ -1,6 +1,7 @@
 package com.cybersploit.JobApp.Company;
 
 import com.cybersploit.JobApp.Job.Job;
+import com.cybersploit.JobApp.Review.Review;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -15,6 +16,8 @@ public class Company {
     @JsonIgnore
     @OneToMany(mappedBy="company")
     private List<Job> jobs;
+    @OneToMany(mappedBy="company")
+    private List<Review> review;
     public Company() {
     }
 
@@ -50,6 +53,11 @@ public class Company {
         this.jobs = jobs;
     }
 
+    public List<Review> getReview() {
+        return review;
+    }
 
-
+    public void setReview(List<Review> review) {
+        this.review = review;
+    }
 }
