@@ -1,0 +1,26 @@
+sudo docker run -d --name db -e POSTGRES_PASSWORD=itsfortest postgres
+sudo docker run -d --name pgadmin -e PGADMIN_DEFAULT_EMAIL=admin@itsfortest.com -e PGADMIN_DEFAULT_PASSWORD=itsfortest
+dpage/pgadmin4
+
+sudo docker exec -it pgadmin ping db
+sudo docker rm -f db pgadmin
+
+Using Network
+
+Create your network
+docker network create my-network
+sudo docker run -p 5432:5432 --network my_network -d --name db -e POSTGRES_PASSWORD=itsfortest postgres
+sudo docker run -p 5050:80 -d --name pgadmin --network my_network -e PGADMIN_DEFAULT_EMAIL=admin@itsfortest.com -e PGADMIN_DEFAULT_PASSWORD=itsfortest dpage/pgadmin4
+
+
+if above command doesn't work use below command and run it manually
+docker pull postgres
+docker pull dpage/pgadmin4
+
+sudo docker exec -it pgadmin ping db
+
+Open PDAdmin
+http://localhost:5050/
+
+
+

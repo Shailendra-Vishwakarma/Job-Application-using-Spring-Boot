@@ -7,7 +7,7 @@
 ### If you are using Linux Machine first install maven using:
 > sudo apt install maven
 
-> sudo mvn spring-boot:build-image "-Dspring-boot.build-image.imageName=<imageName>"
+> sudo mvn spring-boot:build-image "-Dspring-boot.build-image.imageName=imageName"
 
 ### Login using below command
 > sudo docker login (For Linux)
